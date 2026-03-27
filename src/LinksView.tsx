@@ -15,9 +15,9 @@ export default function LinksView() {
     <main className="flex-1 w-full flex flex-col items-center animate-in fade-in slide-in-from-top-8 duration-700 ease-out">
       {/* Links view */}
       <div className="w-full py-16 px-6 flex flex-col items-center justify-center border-b border-neutral-800">
-        <h1 className="text-[clamp(1.5rem,4vw,2rem)] tracking-widest uppercase mb-4">
+        <h2 className="text-[clamp(1.5rem,4vw,2rem)] tracking-widest uppercase mb-4 m-0">
           Kutayb NLM
-        </h1>
+        </h2>
         <p className="text-xs opacity-50 tracking-widest uppercase">Pilih Mata Pelajaran</p>
       </div>
 

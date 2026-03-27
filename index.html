@@ -3,11 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="KNLM: Asisten AI interaktif untuk eksplorasi teks rujukan kitab kurikulum Arab Saudi & LIPIA. Dapatkan jawaban akurat berbasis database OCR literatur Islam.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="KNLM - Asisten AI Kitab & Literatur Islam">
+    <meta property="og:description" content="KNLM: Asisten AI interaktif untuk eksplorasi teks rujukan kitab kurikulum Arab Saudi & LIPIA. Dapatkan jawaban akurat berbasis database OCR literatur Islam.">
+    <meta property="og:image" content="https://i.postimg.cc/bYD95cp9/Whats_App_Image_2026_03_27_at_10_07_31.webp">
+    <meta property="og:type" content="website">
+    
     <title>KNLM</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='black' /><stop offset='100%25' stop-color='white' /></linearGradient></defs><rect width='100' height='100' fill='url(%23g)' /></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS for initial rendering -->
+    <style>
+      body {
+        margin: 0;
+        background-color: #000;
+        color: #fff;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+      }
+      #root {
+        min-height: 100vh;
+      }
+      /* Skeleton/Fallback styles before main CSS loads */
+      .initial-loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    </style>
     <script>
       // Workaround for environments where window.fetch is a getter-only property
       // and some library (like React 19) attempts to overwrite it.
@@ -27,7 +56,9 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-loader">MEMUAT KNLM...</div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
