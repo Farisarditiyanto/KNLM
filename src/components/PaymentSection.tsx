@@ -66,8 +66,9 @@ export default function PaymentSection() {
               </div>
             )}
             <img 
-              src="/qris.webp" 
+              src="https://i.postimg.cc/bYD95cp9/Whats_App_Image_2026_03_27_at_10_07_31.webp" 
               alt="QRIS Kutayb NLM" 
+              referrerPolicy="no-referrer"
               className={`w-full h-full object-contain transition-opacity duration-300 ${isQrisLoaded ? 'opacity-100' : 'opacity-0'}`}
               onLoad={() => setIsQrisLoaded(true)}
               onError={(e) => {
@@ -85,7 +86,7 @@ export default function PaymentSection() {
             </div>
             <span className="text-[10px] opacity-50 leading-relaxed">SILAHKAN UNDUH ATAU SCREENSHOT</span>
             <a 
-              href="/qris.webp" 
+              href="https://i.postimg.cc/bYD95cp9/Whats_App_Image_2026_03_27_at_10_07_31.webp" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-[10px] tracking-widest uppercase border px-4 py-2 transition-colors border-white hover:bg-white hover:text-black"

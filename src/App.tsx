@@ -85,7 +85,7 @@ export default function App() {
         </header>
 
         {currentView === 'home' ? (
-          <main className="flex-1 w-full flex flex-col animate-in fade-in slide-in-from-top-8 duration-700 ease-out">
+          <main className="flex-1 w-full flex flex-col animate-in fade-in slide-in-from-top-8 duration-500 ease-out">
             
             {/* Title / Hero Illustration */}
             <AlurProses />
@@ -182,8 +182,12 @@ export default function App() {
                 {activeTab && (
                   <div className="w-full border p-8 md:p-12 relative z-0 border-neutral-800 bg-black">
                     {activeTab === 'faq' && (
-                      <div className="w-full flex flex-col gap-2 text-left tracking-widest uppercase">
-                        <Suspense fallback={<div className="h-12 border border-neutral-800 animate-pulse w-full"></div>}>
+                      <div className="w-full flex flex-col gap-2 text-left tracking-widest uppercase min-h-[200px]">
+                        <Suspense fallback={
+                          <div className="w-full h-full min-h-[200px] flex items-center justify-center">
+                            <span className="text-xs tracking-widest uppercase font-bold animate-pulse">KNLM</span>
+                          </div>
+                        }>
                           {FAQS.map((faq, index) => (
                             <FaqItem 
                               key={index} 
