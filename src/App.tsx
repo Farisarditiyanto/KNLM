@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useRef, Suspense, lazy, memo, useCallback } from 'react';
+import React, { useState, Suspense, lazy, useCallback } from 'react';
+import AlurProses from './components/AlurProses';
 
 const LinksView = lazy(() => import('./LinksView'));
 const Modal = lazy(() => import('./components/Modal'));
 const FaqItem = lazy(() => import('./components/FaqItem'));
 const PaymentSection = lazy(() => import('./components/PaymentSection'));
 const QuestionForm = lazy(() => import('./components/QuestionForm'));
-const AlurProses = lazy(() => import('./components/AlurProses'));
 
 const FAQS = [
   { q: "APA ITU KUTAYB NLM?", a: "Kutayb NLM adalah inisiatif untuk mendigitalkan (OCR) kitab-kitab bahasa Arab agar teksnya dapat dibaca dan diproses oleh AI seperti NotebookLM." },
@@ -88,9 +88,7 @@ export default function App() {
           <main className="flex-1 w-full flex flex-col animate-in fade-in slide-in-from-top-8 duration-700 ease-out">
             
             {/* Title / Hero Illustration */}
-            <Suspense fallback={<div className="w-full h-48 border-b border-neutral-800 animate-pulse"></div>}>
-              <AlurProses />
-            </Suspense>
+            <AlurProses />
 
             {/* Content */}
             <section aria-label="Tentang KNLM" className="w-full py-16 px-6 flex flex-col items-center border-b border-neutral-800">

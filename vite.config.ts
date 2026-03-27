@@ -3,27 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig, loadEnv} from 'vite';
 
-const asyncCssPlugin = () => ({
-  name: 'async-css',
-  transformIndexHtml(html: string) {
-    return html.replace(
-      /<link[^>]*?rel="stylesheet"[^>]*?>/g,
-      (match) => {
-        const hrefMatch = match.match(/href="([^"]+?\.css)"/);
-        if (hrefMatch) {
-          const href = hrefMatch[1];
-          return `<link rel="preload" as="style" href="${href}">\n    <link rel="stylesheet" href="${href}" media="print" onload="this.media='all'">\n    <noscript><link rel="stylesheet" href="${href}"></noscript>`;
-        }
-        return match;
-      }
-    );
-  }
-});
-
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    plugins: [react(), tailwindcss(), asyncCssPlugin()],
+    plugins: [react(), tailwindcss()],
     build: {
       modulePreload: {
         polyfill: true,

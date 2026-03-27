@@ -1,0 +1,43 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Mencegah clickjacking dengan melarang web ditampilkan di dalam iframe (kecuali dari domain yang sama jika pakai SAMEORIGIN, tapi DENY lebih aman)
+    X-Frame-Options = "DENY"
+    
+    # Mencegah browser melakukan MIME-sniffing (menebak tipe file), memaksa browser mengikuti Content-Type yang dikirim server
+    X-Content-Type-Options = "nosniff"
+    
+    # Melindungi web dari serangan cross-origin dengan mengisolasi browsing context
+    Cross-Origin-Opener-Policy = "same-origin"
+    
+    # Mengontrol informasi referrer yang dikirim saat navigasi ke origin lain
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Mengaktifkan filter XSS bawaan browser (meskipun sudah usang di browser modern, masih berguna untuk browser lama)
+    X-XSS-Protection = "1; mode=block"
+    
+    # Content Security Policy (CSP) yang ketat namun disesuaikan untuk kebutuhan web Anda
+    # - default-src 'self': Hanya izinkan aset dari domain sendiri secara default
+    # - script-src 'self' 'unsafe-inline': Izinkan script dari domain sendiri dan script inline (dibutuhkan oleh React/Vite dan script fetch workaround di index.html)
+    # - style-src 'self' 'unsafe-inline' https://fonts.googleapis.com: Izinkan CSS dari domain sendiri, CSS inline (critical CSS), dan Google Fonts
+    # - font-src 'self' https://fonts.gstatic.com: Izinkan file font dari domain sendiri dan Google Fonts
+    # - img-src 'self' data: https://i.postimg.cc: Izinkan gambar dari domain sendiri, data URI (untuk favicon SVG), dan i.postimg.cc (untuk gambar QRIS & OCR)
+    # - connect-src 'self': Hanya izinkan koneksi API/Fetch ke domain sendiri
+    # - object-src 'none': Blokir elemen <object>, <embed>, dan <applet> (mencegah eksekusi plugin berbahaya seperti Flash/Java)
+    # - base-uri 'self': Batasi tag <base> hanya ke domain sendiri
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://i.postimg.cc; connect-src 'self'; object-src 'none'; base-uri 'self';"
+
+[[headers]]
+  for = "/**/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/**/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/**/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
